@@ -62,7 +62,7 @@ export const Header: React.FC = () => {
             {/* Desktop Location Selector */}
             <button
               type="button"
-              className="hidden lg:flex items-center gap-space-xs px-space-sm py-space-xs rounded-lg bg-surface-container-low hover:bg-surface-container text-left transition-colors cursor-pointer"
+              className="hidden lg:flex items-center gap-2 px-space-sm py-space-xs rounded-lg bg-surface-container-low hover:bg-surface-container text-left transition-colors cursor-pointer"
             >
               <span className="material-symbols-outlined text-primary text-[20px]">location_on</span>
               <div className="flex flex-col">
@@ -99,12 +99,12 @@ export const Header: React.FC = () => {
               onSubmit={(e) => e.preventDefault()}
               className="relative flex items-center w-full h-12 rounded-xl bg-surface-container-low shadow-[0_2px_6px_-1px_rgba(99,44,18,0.05)] border border-outline-variant/30"
             >
-              <div className="hidden sm:flex items-center h-full shrink-0">
+              <div className="hidden sm:flex items-center h-full shrink-0 relative rounded-l-xl">
                 <select
                   value={selectedCategory}
                   onChange={(e) => setSelectedCategory(e.target.value)}
                   aria-label="Search category filter"
-                  className="h-full pl-4 pr-3 bg-transparent font-label-md text-label-md text-on-surface-variant outline-none cursor-pointer rounded-l-xl"
+                  className="h-full w-[150px] pl-4 pr-8 bg-transparent font-label-md text-label-md text-on-surface-variant outline-none cursor-pointer appearance-none z-10"
                 >
                   <option value="all">All Categories</option>
                   <option value="tools">Kitchen Tools</option>
@@ -112,6 +112,9 @@ export const Header: React.FC = () => {
                   <option value="storage">Storage &amp; Jars</option>
                   <option value="appliances">Small Appliances</option>
                 </select>
+                <span className="material-symbols-outlined absolute right-4 text-on-surface-variant text-[20px] pointer-events-none">
+                  arrow_drop_down
+                </span>
                 <div className="h-6 w-px bg-outline-variant shrink-0" />
               </div>
 
@@ -161,10 +164,12 @@ export const Header: React.FC = () => {
               className="relative p-space-xs rounded-lg hover:bg-surface-container-low text-on-surface transition-colors flex items-center justify-center"
               aria-label="Wishlist"
             >
-              <span className="material-symbols-outlined text-[24px]">favorite</span>
-              <span className="absolute -top-1 -right-1 bg-tertiary-container text-on-tertiary-container font-label-badge text-label-badge w-4 h-4 rounded-full flex items-center justify-center">
-                {wishlistIds.length}
-              </span>
+              <div className="relative flex items-center justify-center">
+                <span className="material-symbols-outlined text-[24px]">favorite</span>
+                <span className="absolute -top-1.5 -right-2 bg-tertiary-container text-on-tertiary-container font-label-badge text-label-badge px-1.5 h-4 rounded-full flex items-center justify-center">
+                  {wishlistIds.length}
+                </span>
+              </div>
             </a>
 
             <button
@@ -174,7 +179,7 @@ export const Header: React.FC = () => {
             >
               <div className="relative flex items-center justify-center">
                 <span className="material-symbols-outlined text-primary text-[24px]">shopping_cart</span>
-                <span className="absolute -top-1.5 -right-2 bg-primary text-on-primary font-label-badge text-label-badge px-1.5 h-4 rounded-full flex items-center justify-center">
+                <span className="absolute -top-2 -right-2.5 bg-primary text-on-primary font-label-badge text-[10px] px-1.5 h-[18px] rounded-full flex items-center justify-center shadow-xs border border-surface">
                   {totalItemsCount}
                 </span>
               </div>

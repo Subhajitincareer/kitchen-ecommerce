@@ -18,7 +18,7 @@ export function GlobalLayoutWrapper({ children }: { children: React.ReactNode })
       <ToastNotification />
       {!isAuthPage && <Header />}
       {!isAuthPage && <CartDrawer />}
-      <main className={isAuthPage ? 'w-full flex-1' : 'flex-1 w-full pt-[120px] sm:pt-[128px] pb-16 md:pb-0'}>
+      <main className={isAuthPage ? 'w-full flex-1' : 'flex-1 w-full pt-[184px] md:pt-[144px] pb-16 md:pb-0'}>
         {children}
       </main>
       {!isAuthPage && <Footer />}
