@@ -11,18 +11,18 @@ import { CartProvider } from '@/context/CartContext';
 
 export function GlobalLayoutWrapper({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
-  const isAuthPage = pathname === '/auth';
+  const isStandalonePage = pathname === '/auth' || pathname.startsWith('/admin');
 
   return (
     <CartProvider>
       <ToastNotification />
-      {!isAuthPage && <Header />}
-      {!isAuthPage && <CartDrawer />}
-      <main className={isAuthPage ? 'w-full flex-1' : 'flex-1 w-full pt-[184px] md:pt-[144px] pb-16 md:pb-0'}>
+      {!isStandalonePage && <Header />}
+      {!isStandalonePage && <CartDrawer />}
+      <main className={isStandalonePage ? 'w-full flex-1' : 'flex-1 w-full pt-[184px] md:pt-[144px] pb-16 md:pb-0'}>
         {children}
       </main>
-      {!isAuthPage && <Footer />}
-      {!isAuthPage && <MobileBottomNav />}
+      {!isStandalonePage && <Footer />}
+      {!isStandalonePage && <MobileBottomNav />}
     </CartProvider>
   );
 }
